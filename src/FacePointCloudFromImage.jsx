@@ -8,7 +8,7 @@ export default function FacePointCloudFromImage() {
 
   useEffect(() => {
     const img = new Image();
-    img.src = "/face.jpg";  // public에 저장된 네가 준 얼굴 이미지
+    img.src = "/face.jpg";  
 
     img.onload = () => {
       const canvas = document.createElement("canvas");
@@ -48,7 +48,8 @@ export default function FacePointCloudFromImage() {
         // ************************************************
         // 핵심 깊이맵 (구형 왜곡 제거 + 얼굴 구조 반영)
         // ************************************************
-        const depthStrength = 0.55;
+        // const depthStrength = 0.55;
+        const depthStrength = 10;
         const nz = (brightness - 0.5) * depthStrength;
 
         pts.push(nx, ny, nz);
@@ -85,3 +86,4 @@ export default function FacePointCloudFromImage() {
     </points>
   );
 }
+//정상

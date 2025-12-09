@@ -1,23 +1,21 @@
-import { Canvas } from '@react-three/fiber';
-import MusicPlayer from './components/MusicPlayer';
-import Scene from './components/Scene.jsx';
+import { Canvas } from "@react-three/fiber";
+import FacePointCloudFromImage from "./FacePointCloudFromImage";
+import { OrbitControls } from "@react-three/drei";
 
-function App() {
-
-  const musicPath = "/music/into-the-mist-forest-166203.mp3"; 
-  
+export default function App() {
   return (
-    <div style={{ width: '100vw', height: '100vh', background: '#000000', position: 'relative' }}>
-      
-      <MusicPlayer src={musicPath} />
-
-      <Canvas 
-          camera={{ fov: 75, position: [0, 0, 10] }}>
-        <Scene />
-      </Canvas>
-    </div>
+    <Canvas
+      camera={{ position: [0, 0, 2.4] }}
+      style={{ width: "100vw", height: "100vh", background: "black" }}
+    >
+      <OrbitControls
+        enableZoom={true}
+        enableRotate={true}
+        enablePan={true}
+        minDistance={0.5}
+        maxDistance={10}
+      />
+      <FacePointCloudFromImage />
+    </Canvas>
   );
 }
-
-export default App;
-//정상
